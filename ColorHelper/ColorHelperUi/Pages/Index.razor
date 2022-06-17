@@ -1,0 +1,39 @@
+﻿@page "/"
+@using ColorService
+@using ColorService.Models
+@using MudBlazor.Utilities
+@inject IColorService _colorService
+
+<PageTitle>Find Closest Paints</PageTitle>
+
+<MudColorPicker PickerVariant="PickerVariant.Static" ValueChanged="GetClosestPaints"/>
+
+@if (ClosestPaints.Any())
+{
+    <MudSimpleTable>
+        <thead>
+                <tr>
+                    <th>Brand</th>
+                    <th>Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var paint in ClosestPaints)
+                {
+                    <tr>
+                        <td>@paint.Brand</td>
+                        <td>@paint.Name</td>
+                    </tr>
+                }
+            </tbody>
+    </MudSimpleTable>
+}
+@code {
+
+    private IList<Paint> ClosestPaints { get; set; } = new List<Paint>();
+    
+    private void GetClosestPaints(MudColor selectedColor)
+    {
+        ClosestPaints = _colorService.GetClosestPaints(selectedColor.R, selectedColor.G,selectedColor.B);
+    }
+}
