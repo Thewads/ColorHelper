@@ -23,7 +23,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\ColorService\ColorService.csproj" />
+      <ProjectReference Include="..\..\ColorService\ColorService.csproj" />
     </ItemGroup>
 
 </Project>

@@ -4,7 +4,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ColorService", "ColorServic
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{DB6B21F3-2F7B-4A65-A7AB-28C8F00EFC9D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ColorServiceTests", "ColorServiceTests\ColorServiceTests.csproj", "{4BDF0FD2-D6D0-465F-A8E1-FF7B1E32E452}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ColorServiceTests", "Tests\ColorServiceTests\ColorServiceTests.csproj", "{4BDF0FD2-D6D0-465F-A8E1-FF7B1E32E452}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ColorHelperUi", "ColorHelperUi\ColorHelperUi.csproj", "{13AE7008-0E43-4B16-8D82-64B7F964DB12}"
 EndProject
