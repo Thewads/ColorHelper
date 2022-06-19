@@ -20,7 +20,7 @@ public class ColorService : IColorService
     {
         var labColor = _rgbToLabConverter.Convert(new Rgb { R = r, G = g, B = b });
 
-        IList<Paint>? allPaints = await _paintProvider.RetrieveAllPaints();
+        IList<Paint> allPaints = await _paintProvider.RetrieveAllPaints();
         IList<Tuple<Paint, double>> closestPaints = new List<Tuple<Paint, double>>();
 
         foreach (var paint in allPaints)
@@ -32,7 +32,7 @@ public class ColorService : IColorService
             closestPaints.Add(new Tuple<Paint, double>(paint, distance));
         }
 
-        return closestPaints.OrderBy(x => x.Item2).Select(x => x.Item1).ToList();
+        return closestPaints.OrderBy(x => x.Item2).Take(5).Select(x => x.Item1).ToList();
     }
 }
 

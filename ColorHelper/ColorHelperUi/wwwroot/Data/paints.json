@@ -3,56 +3,518 @@
     "Brand": "Citadel",
     "Name": "Abaddon Black",
     "Rgb": {
+      "R": 35,
+      "G": 31,
+      "B": 32
+    },
+    "Lab": {
+      "l": 12.23,
+      "A": 2.14,
+      "B": 0.01
+    }
+  },
+  {
+    "Brand": "Citadel",
+    "Name": "Averland Sunset",
+    "Rgb": {
+      "R": 253,
+      "G": 184,
+      "B": 37
+    },
+    "Lab": {
+      "l": 79.21,
+      "A": 13.66,
+      "B": 75.87
+    }
+  },
+  {
+    "Brand": "Citadel",
+    "Name": "Balthasar Gold (Metal)",
+    "Rgb": {
+      "R": 164,
+      "G": 117,
+      "B": 82
+    },
+    "Lab": {
+      "l": 53.19,
+      "A": 14.2,
+      "B": 26.56
+    }
+  },
+  {
+    "Brand": "Citadel",
+    "Name": "Bugmans Glow",
+    "Rgb": {
+      "R": 131,
+      "G": 79,
+      "B": 68
+    },
+    "Lab": {
+      "l": 39.3,
+      "A": 20.56,
+      "B": 15.75
+    }
+  },
+  {
+    "Brand": "Citadel",
+    "Name": "Caledor Sky",
+    "Rgb": {
+      "R": 57,
+      "G": 110,
+      "B": 158
+    },
+    "Lab": {
+      "l": 44.93,
+      "A": -2.16,
+      "B": -31.22
+    }
+  },
+  {
+    "Brand": "Citadel",
+    "Name": "Caliban Green",
+    "Rgb": {
       "R": 0,
-      "G": 0,
+      "G": 64,
+      "B": 31
+    },
+    "Lab": {
+      "l": 22.88,
+      "A": -27.72,
+      "B": 15.04
+    }
+  },
+  {
+    "Brand": "Citadel",
+    "Name": "Castellan Green",
+    "Rgb": {
+      "R": 49,
+      "G": 72,
+      "B": 33
+    },
+    "Lab": {
+      "l": 27.84,
+      "A": -17.12,
+      "B": 20.48
+    }
+  },
+  {
+    "Brand": "Citadel",
+    "Name": "Celestra Grey",
+    "Rgb": {
+      "R": 144,
+      "G": 168,
+      "B": 168
+    },
+    "Lab": {
+      "l": 67.1,
+      "A": -8.28,
+      "B": -2.81
+    }
+  },
+  {
+    "Brand": "Citadel",
+    "Name": "Ceramite White",
+    "Rgb": {
+      "R": 255,
+      "G": 255,
+      "B": 255
+    },
+    "Lab": {
+      "l": 1,
+      "A": 0,
       "B": 0
-    },
-    "Lab": {
-      "l": 0.0,
-      "A": 0.0,
-      "B": 0.0
     }
   },
   {
     "Brand": "Citadel",
-    "Name": "Screamer Pink",
+    "Name": "Daemonette Hide",
     "Rgb": {
-      "R": 112,
-      "G": 30,
-      "B": 66
+      "R": 105,
+      "G": 102,
+      "B": 132
     },
     "Lab": {
-      "l": 26.06,
-      "A": 39.01,
-      "B": -2.06
+      "l": 44.48,
+      "A": 7.96,
+      "B": -16.18
     }
   },
   {
     "Brand": "Citadel",
-    "Name": "Troll Slayer Orange",
+    "Name": "Death Guard Green",
     "Rgb": {
-      "R": 241,
-      "G": 108,
-      "B": 34
+      "R": 132,
+      "G": 138,
+      "B": 102
     },
     "Lab": {
-      "l": 61.26,
-      "A": 47.61,
-      "B": 61.55
+      "l": 56.13,
+      "A": -8.62,
+      "B": 18.59
+    }
+  },
+  {
+    "Brand": "Citadel",
+    "Name": "Deathworld Forest",
+    "Rgb": {
+      "R": 92,
+      "G": 103,
+      "B": 48
+    },
+    "Lab": {
+      "l": 41.52,
+      "A": -13.47,
+      "B": 29.34
+    }
+  },
+  {
+    "Brand": "Citadel",
+    "Name": "Dryad Bark",
+    "Rgb": {
+      "R": 51,
+      "G": 49,
+      "B": 45
+    },
+    "Lab": {
+      "l": 20.4,
+      "A": 0.01,
+      "B": 2.87
+    }
+  },
+  {
+    "Brand": "Citadel",
+    "Name": "Incubi Darkness",
+    "Rgb": {
+      "R": 11,
+      "G": 71,
+      "B": 74
+    },
+    "Lab": {
+      "l": 26.94,
+      "A": -16.74,
+      "B": -7.09
+    }
+  },
+  {
+    "Brand": "Citadel",
+    "Name": "Jokaero Orange",
+    "Rgb": {
+      "R": 238,
+      "G": 56,
+      "B": 35
+    },
+    "Lab": {
+      "l": 53.09,
+      "A": 67.22,
+      "B": 54.23
+    }
+  },
+  {
+    "Brand": "Citadel",
+    "Name": "Kantor Blue",
+    "Rgb": {
+      "R": 0,
+      "G": 33,
+      "B": 81
+    },
+    "Lab": {
+      "l": 13.72,
+      "A": 10.6,
+      "B": -32.53
+    }
+  },
+  {
+    "Brand": "Citadel",
+    "Name": "Khorne Red",
+    "Rgb": {
+      "R": 106,
+      "G": 0,
+      "B": 1
+    },
+    "Lab": {
+      "l": 20.31,
+      "A": 42.03,
+      "B": 30.62
+    }
+  },
+  {
+    "Brand": "Citadel",
+    "Name": "Leadbelcher (Metal)",
+    "Rgb": {
+      "R": 136,
+      "G": 141,
+      "B": 143
+    },
+    "Lab": {
+      "l": 58.29,
+      "A": -1.42,
+      "B": -1.71
     }
   },
   {
     "Brand": "Citadel",
     "Name": "Macragge Blue",
     "Rgb": {
-      "R": 40,
-      "G": 60,
-      "B": 119
+      "R": 13,
+      "G": 64,
+      "B": 127
     },
     "Lab": {
-      "l": 26.78,
-      "A": 12.7,
-      "B": -36.24
+      "l": 27.53,
+      "A": 9.56,
+      "B": -40.12
+    }
+  },
+  {
+    "Brand": "Citadel",
+    "Name": "Mechanicus Standard Grey",
+    "Rgb": {
+      "R": 61,
+      "G": 75,
+      "B": 77
+    },
+    "Lab": {
+      "l": 30.78,
+      "A": -5.03,
+      "B": -3.05
+    }
+  },
+  {
+    "Brand": "Citadel",
+    "Name": "Mephiston Red",
+    "Rgb": {
+      "R": 154,
+      "G": 17,
+      "B": 21
+    },
+    "Lab": {
+      "l": 32.54,
+      "A": 52.71,
+      "B": 36.79
+    }
+  },
+  {
+    "Brand": "Citadel",
+    "Name": "Mournfang Brown",
+    "Rgb": {
+      "R": 100,
+      "G": 9,
+      "B": 9
+    },
+    "Lab": {
+      "l": 19.74,
+      "A": 38.2,
+      "B": 26.33
+    }
+  },
+  {
+    "Brand": "Citadel",
+    "Name": "Naggaroth Night",
+    "Rgb": {
+      "R": 61,
+      "G": 51,
+      "B": 84
+    },
+    "Lab": {
+      "l": 23.67,
+      "A": 12.64,
+      "B": -18.44
+    }
+  },
+  {
+    "Brand": "Citadel",
+    "Name": "Rakarth Flesh",
+    "Rgb": {
+      "R": 162,
+      "G": 158,
+      "B": 145
+    },
+    "Lab": {
+      "l": 65.1,
+      "A": -0.89,
+      "B": 7.3
+    }
+  },
+  {
+    "Brand": "Citadel",
+    "Name": "Ratskin Flesh",
+    "Rgb": {
+      "R": 173,
+      "G": 107,
+      "B": 76
+    },
+    "Lab": {
+      "l": 51.75,
+      "A": 23.11,
+      "B": 28.32
+    }
+  },
+  {
+    "Brand": "Citadel",
+    "Name": "Retributor Armour (Metal)",
+    "Rgb": {
+      "R": 195,
+      "G": 158,
+      "B": 129
+    },
+    "Lab": {
+      "l": 67.76,
+      "A": 9.56,
+      "B": 20.33
+    }
+  },
+  {
+    "Brand": "Citadel",
+    "Name": "Rhinox Hide ",
+    "Rgb": {
+      "R": 73,
+      "G": 52,
+      "B": 53
+    },
+    "Lab": {
+      "l": 24.09,
+      "A": 9.63,
+      "B": 3.08
+    }
+  },
+  {
+    "Brand": "Citadel",
+    "Name": "Screamer Pink",
+    "Rgb": {
+      "R": 124,
+      "G": 22,
+      "B": 69
+    },
+    "Lab": {
+      "l": 27.54,
+      "A": 45.76,
+      "B": -1.63
+    }
+  },
+  {
+    "Brand": "Citadel",
+    "Name": "Screaming Bell (Metal)",
+    "Rgb": {
+      "R": 193,
+      "G": 111,
+      "B": 69
+    },
+    "Lab": {
+      "l": 55.21,
+      "A": 28.69,
+      "B": 37.03
+    }
+  },
+  {
+    "Brand": "Citadel",
+    "Name": "Steel Legion Drab",
+    "Rgb": {
+      "R": 94,
+      "G": 81,
+      "B": 52
+    },
+    "Lab": {
+      "l": 35.03,
+      "A": 0.79,
+      "B": 19.03
+    }
+  },
+  {
+    "Brand": "Citadel",
+    "Name": "Stegadon Scale Green",
+    "Rgb": {
+      "R": 7,
+      "G": 72,
+      "B": 99
+    },
+    "Lab": {
+      "l": 28.33,
+      "A": -8.11,
+      "B": -21.13
+    }
+  },
+  {
+    "Brand": "Citadel",
+    "Name": "The Fang Grey",
+    "Rgb": {
+      "R": 67,
+      "G": 97,
+      "B": 116
+    },
+    "Lab": {
+      "l": 39.59,
+      "A": -5.6,
+      "B": -14.2
+    }
+  },
+  {
+    "Brand": "Citadel",
+    "Name": "Thousand Sons Blue ",
+    "Rgb": {
+      "R": 24,
+      "G": 171,
+      "B": 204
+    },
+    "Lab": {
+      "l": 64.71,
+      "A": -23.97,
+      "B": -26.86
+    }
+  },
+  {
+    "Brand": "Citadel",
+    "Name": "Waaagh! Flesh",
+    "Rgb": {
+      "R": 31,
+      "G": 84,
+      "B": 41
+    },
+    "Lab": {
+      "l": 31.33,
+      "A": -28.14,
+      "B": 19.94
+    }
+  },
+  {
+    "Brand": "Citadel",
+    "Name": "Warplock Bronze (Metal)",
+    "Rgb": {
+      "R": 146,
+      "G": 125,
+      "B": 123
+    },
+    "Lab": {
+      "l": 54.25,
+      "A": 7.71,
+      "B": 4.07
+    }
+  },
+  {
+    "Brand": "Citadel",
+    "Name": "XV-88",
+    "Rgb": {
+      "R": 114,
+      "G": 73,
+      "B": 30
+    },
+    "Lab": {
+      "l": 34.88,
+      "A": 13.21,
+      "B": 32.01
+    }
+  },
+  {
+    "Brand": "Citadel",
+    "Name": "Zandri Dust ",
+    "Rgb": {
+      "R": 158,
+      "G": 145,
+      "B": 92
+    },
+    "Lab": {
+      "l": 60.15,
+      "A": -3.01,
+      "B": 29.86
     }
   }
 ]
