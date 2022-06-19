@@ -16,11 +16,11 @@ public class ColorService : IColorService
         _rgbToLabConverter = rgbToLabConverter;
     }
     
-    public IList<Paint> GetClosestPaints(int r, int g, int b)
+    public async Task<IList<Paint>> GetClosestPaints(int r, int g, int b)
     {
         var labColor = _rgbToLabConverter.Convert(new Rgb { R = r, G = g, B = b });
 
-        IList<Paint> allPaints = _paintProvider.RetrieveAllPaints();
+        IList<Paint>? allPaints = await _paintProvider.RetrieveAllPaints();
         IList<Tuple<Paint, double>> closestPaints = new List<Tuple<Paint, double>>();
 
         foreach (var paint in allPaints)

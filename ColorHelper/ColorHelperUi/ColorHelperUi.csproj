@@ -16,4 +16,11 @@
       <ProjectReference Include="..\ColorService\ColorService.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Content Remove="wwwroot\Data\paints.json" />
+      <None Include="wwwroot\Data\paints.json">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+    </ItemGroup>
+
 </Project>

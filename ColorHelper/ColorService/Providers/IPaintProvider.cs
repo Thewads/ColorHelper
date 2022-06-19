@@ -4,5 +4,5 @@ namespace ColorService.Providers;
 
 public interface IPaintProvider
 {
-    IList<Paint> RetrieveAllPaints();
+    Task<IList<Paint>> RetrieveAllPaints();
 }

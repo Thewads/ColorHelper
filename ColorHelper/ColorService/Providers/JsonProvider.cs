@@ -1,41 +1,30 @@
-﻿using ColorService.Models;
+﻿using System.Net.Http.Json;
+using ColorService.Models;
+using Newtonsoft.Json;
 
 namespace ColorService.Providers;
 
 public class JsonProvider : IPaintProvider
 {
-    public IList<Paint> RetrieveAllPaints()
+    private IList<Paint> _paints = new List<Paint>();
+    private readonly HttpClient _httpClient;
+    
+    public JsonProvider(HttpClient httpClient)
     {
-        return new List<Paint>
-        {
-            new()
-            {
-                Brand = "GW",
-                Name = "Abaddon Black",
-                Rgb = new Rgb{R = 0, G = 0, B = 0},
-                Lab = new Lab{L = 0, A = 0, B = 0}
-            },
-            new()
-            {
-                Brand = "GW",
-                Name = "Screamer Pink",
-                Rgb = new Rgb{R = 112, G = 30, B = 66},
-                Lab = new Lab{L = 26.06, A = 39.01, B = -2.06}
-            },
-            new()
-            {
-                Brand = "GW",
-                Name = "Troll Slayer Orange",
-                Rgb = new Rgb{R = 241, G = 108, B = 34},
-                Lab = new Lab{L = 61.26, A = 47.61, B = 61.55}
-            },
-            new()
-            {
-                Brand = "GW",
-                Name = "Macragge Blue",
-                Rgb = new Rgb{R = 40, G = 60, B = 119},
-                Lab = new Lab{L = 26.78, A = 12.7, B = -36.24}
-            }
-        };
+        _httpClient = httpClient;
+    }
+    
+    public async Task<IList<Paint>> RetrieveAllPaints()
+    {
+        if (!_paints.Any()) await PopulatePaintList();
+
+        return _paints;
+    }
+
+    private async Task PopulatePaintList()
+    {
+        var result = await _httpClient.GetFromJsonAsync<IList<Paint>>("Data/paints.json");
+        if (result != null)
+            _paints = result;
     }
 }
