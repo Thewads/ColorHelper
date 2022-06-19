@@ -3,40 +3,64 @@
 @using ColorService.Models
 @using MudBlazor.Utilities
 @inject IColorService ColorService
-@inject HttpClient HttpClient
 
-<PageTitle>Find Closest Paints</PageTitle>
+<MudContainer>
+    
+    <MudText Typo="Typo.h4">Find Closest Paints</MudText>
+    <MudText Typo="Typo.body1">Select or input a given color and the 5 closest known colors will be listed</MudText>
+    <MudDivider class="mb-5"></MudDivider>
+    
+    
+    <MudGrid>
+        <MudItem xs="12" sm="6" md="6">
+            <MudPaper Elevation="2" Class="d-flex flex-wrap pa-4" style="min-height:400px;">
+                <MudColorPicker class="object-center" PickerVariant="PickerVariant.Static" DisableAlpha="true" DisablePreview="true" ValueChanged="GetClosestPaints"/>
+            </MudPaper>
+        </MudItem>
+        <MudItem xs="12" sm="6" md="6">
+            <MudPaper Elevation="2" Class="pa-4" style="min-height:400px;">
+                <MudSimpleTable>
+                    <thead>
+                        <tr>
+                            <th>Brand</th>
+                            <th>Name</th>
+                            <th>Sample</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    @foreach (var paint in ClosestPaints)
+                    {
+                        <tr>
+                            <td>@paint.Brand</td>
+                            <td>@paint.Name</td>
+                            <td style="background-color: rgb(@paint.Rgb.R, @paint.Rgb.G, @paint.Rgb.B)"></td>
+                        </tr>
+                    }
+                    </tbody>
+                </MudSimpleTable>
+            </MudPaper>
+        </MudItem>
+    </MudGrid>
+</MudContainer>
 
-<MudColorPicker PickerVariant="PickerVariant.Static" DisableAlpha="true" DisablePreview="true" ValueChanged="GetClosestPaints"/>
 
-@if (ClosestPaints.Any())
-{
-    <MudSimpleTable>
-        <thead>
-                <tr>
-                    <th>Brand</th>
-                    <th>Name</th>
-                    <th>Sample</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var paint in ClosestPaints)
-                {
-                    <tr>
-                        <td>@paint.Brand</td>
-                        <td>@paint.Name</td>
-                        <td style="background-color: rgb(@paint.Rgb.R, @paint.Rgb.G, @paint.Rgb.B)"></td>
-                    </tr>
-                }
-            </tbody>
-    </MudSimpleTable>
-}
 @code {
 
     private IList<Paint> ClosestPaints { get; set; } = new List<Paint>();
     
+    protected override Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            GetClosestPaints(new MudColor(89,74,226, 0));
+        }
+        return base.OnAfterRenderAsync(firstRender);
+    }
+
+    
     private async void GetClosestPaints(MudColor selectedColor)
     {
         ClosestPaints = await ColorService.GetClosestPaints(selectedColor.R, selectedColor.G,selectedColor.B);
+        StateHasChanged();
     }
 }
