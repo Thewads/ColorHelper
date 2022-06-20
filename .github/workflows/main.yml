@@ -32,7 +32,7 @@ jobs:
       run: dotnet test --no-restore --verbosity normal
       
     - name: Publish .NET Core Project
-      run: dotnet publish ColorHelper\ColorHelperUi\ColorHelperUi.csproj -c Release -o release --nologo
+      run: dotnet publish ColorHelper/ColorHelperUi/ColorHelperUi.csproj -c Release -o release --nologo
       
     # changes the base-tag in index.html from '/' to 'ColorHelperUi' to match GitHub Pages repository subdirectory
     - name: Change base-tag in index.html from / to ColorHelperUi
