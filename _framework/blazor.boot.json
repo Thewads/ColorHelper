@@ -7,7 +7,7 @@
   "linkerEnabled": true,
   "resources": {
     "assembly": {
-      "ColorHelperUi.dll": "sha256-+MfIvRJC2g5OyeadbwsETtlThIBheBuzQwHVr0K39qs=",
+      "ColorHelperUi.dll": "sha256-slhKOI\/o4qlEXts7CwLiX++b83MThu4\/lvYzvMlURSw=",
       "ColorService.dll": "sha256-O2Wm8YXeov6qoK\/fa1pW\/DzKXHLeQR1HVwNnihMDZkE=",
       "Colourful.dll": "sha256-quX4FvAsWzP6LyyHvLtjhK\/3gwNA1HzP1Rj1hP6Mpbw=",
       "Microsoft.AspNetCore.Components.dll": "sha256-NSKAnk1AlqE5H5mnWmil80QpftFgJgKduWh5uL3L6oE=",
