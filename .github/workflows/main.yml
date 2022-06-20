@@ -37,15 +37,17 @@ jobs:
       working-directory: ColorHelper
       run: dotnet publish ColorHelperUi\ColorHelperUi.csproj -c Release -o release --nologo
       
-    # changes the base-tag in index.html from '/' to 'BlazorGitHubPagesDemo' to match GitHub Pages repository subdirectory
+    # changes the base-tag in index.html from '/' to 'ColorHelperUi' to match GitHub Pages repository subdirectory
     - name: Change base-tag in index.html from / to ColorHelperUi
+      shell: pwsh
       working-directory: ColorHelper
-      run: sed -i 's/<base href="\/" \/>/<base href="\/ColorHelperUi\/" \/>/g' release/wwwroot/index.html
+      run: (Get-Content release/wwwroot/index.html) -replace '<base href="/" />', '<base href="/ColorHelperUi/" />' | Out-File -encoding ASCII release/wwwroot/index.html
     
     # add .nojekyll file to tell GitHub pages to not treat this as a Jekyll project. (Allow files and folders starting with an underscore)
     - name: Add .nojekyll file
-      run: touch ColorHelper/release/wwwroot/.nojekyll
-      
+      shell: pwsh
+      run: New-Item -Name ColorHelper/release/wwwroot/.nojekyll -ItemType File
+
     - name: Commit wwwroot to GitHub Pages
       uses: JamesIves/github-pages-deploy-action@3.7.1
       with:
