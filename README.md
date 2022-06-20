@@ -1,4 +1,4 @@
-# ColorHelper [![build and test](https://github.com/Thewads/ColorHelper/actions/workflows/build-and-test.yml/badge.svg?branch=main)](https://github.com/Thewads/ColorHelper/actions/workflows/build-and-test.yml)
+# ColorHelper [![build, test and deploy](https://github.com/Thewads/ColorHelper/actions/workflows/main.yml/badge.svg)](https://github.com/Thewads/ColorHelper/actions/workflows/main.yml)
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
