@@ -26,15 +26,15 @@ To get the project up and running locally, follow the steps below
 ```sh
    dotnet restore
    ```
-3. Build solution
+4. Build solution
 ```sh
    dotnet build --configuration Release --no-restore
    ```
-4. Run the application
+5. Run the application
 ```sh
    dotnet run --configuration release --no-build --project ColorHelperUi/ColorHelperUi.csproj
    ```
-5. Run [website in browser](https://localhost:7155)
+6. Run [website in browser](https://localhost:7155)
 
 ## Roadmap
 
