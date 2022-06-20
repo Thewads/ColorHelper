@@ -9,7 +9,7 @@ on:
         - main
 
 env:
-  DOTNET_VERSION: '6.0.6' # The .NET SDK version to use
+  DOTNET_VERSION: '6.0.x' # The .NET SDK version to use
 
 jobs:
   build-and-test:
