@@ -25,10 +25,13 @@ jobs:
         dotnet-version: ${{ env.DOTNET_VERSION }}
 
     - name: Install dependencies
+      working-directory: ColorHelper
       run: dotnet restore
       
     - name: Build
+      working-directory: ColorHelper
       run: dotnet build --configuration Release --no-restore
     
     - name: Test
+      working-directory: ColorHelper
       run: dotnet test --no-restore --verbosity normal
