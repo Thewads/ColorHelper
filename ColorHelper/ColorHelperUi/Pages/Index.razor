@@ -20,7 +20,7 @@
                                  SearchFunc="@SearchForPaint"
                                  ValueChanged="@SearchValueChanged"
                                  Clearable="true"
-                                 ToStringFunc="@(e=> e.Name)"
+                                 ToStringFunc="@(e=> e.Name + " - " + e.Brand)"
                                  ResetValueOnEmptyText="true"
                                  AdornmentIcon="@Icons.Material.Filled.Search" AdornmentColor="Color.Primary" />
                 
