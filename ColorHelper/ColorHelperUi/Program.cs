@@ -13,6 +13,7 @@ builder.RootComponents.Add<HeadOutlet>("head::after");
 builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 builder.Services.AddScoped<IColorService, ColorService.ColorService>();
 builder.Services.AddScoped<IPaintService, PaintService>();
+builder.Services.AddScoped<IBrandService, BrandService>();
 builder.Services.AddScoped<IPaintProvider, JsonProvider>();
 builder.Services.AddScoped<IRgbToLabConverter, RgbToLabConverter>();
 builder.Services.AddMudServices();

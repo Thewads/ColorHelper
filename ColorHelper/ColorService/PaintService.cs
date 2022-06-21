@@ -11,7 +11,7 @@ public class PaintService : IPaintService
     {
         _paintProvider = paintProvider;
     }
-    
+
     public async Task<IList<Paint>> GetPaint(string searchTerm)
     {
         var allPaints = await _paintProvider.RetrieveAllPaints();

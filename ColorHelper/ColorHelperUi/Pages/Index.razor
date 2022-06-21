@@ -4,6 +4,7 @@
 @using MudBlazor.Utilities
 @inject IColorService ColorService
 @inject IPaintService PaintService
+@inject IBrandService BrandService
 
 <MudContainer>
     
@@ -34,6 +35,13 @@
         </MudItem>
         <MudItem xs="12" sm="6" md="6">
             <MudPaper Elevation="2" Class="pa-4" style="min-height:400px;">
+                <MudChipSet @bind-SelectedChips="_selectedBrandFilters"
+                            SelectedValuesChanged="SelectedValuesChanged" MultiSelection="true" Filter="true">
+                    @foreach (var brand in Brands)
+                    {
+                        <MudChip Text="@brand" Default="true"></MudChip>
+                    }
+                </MudChipSet>
                 <MudSimpleTable>
                     <thead>
                         <tr>
@@ -62,9 +70,13 @@
 @code {
 
     private IList<Paint> ClosestPaints { get; set; } = new List<Paint>();
-    private MudColorPicker _colorPicker = default!;
+    private IList<string> Brands { get; set; } = new List<string>();
 
-    protected override Task OnAfterRenderAsync(bool firstRender)
+    private MudChip[] _selectedBrandFilters = Array.Empty<MudChip>();
+    private MudColorPicker _colorPicker = default!;
+    private MudColor _selectedColor = default!;
+
+    protected override async Task OnInitializedAsync()
     {
         if (firstRender)
         {
@@ -73,9 +85,12 @@
         return base.OnAfterRenderAsync(firstRender);
     }
     
-    private async void GetClosestPaints(MudColor selectedColor)
+    private async void GetClosestPaints(MudColor? selectedColor)
     {
-        ClosestPaints = await ColorService.GetClosestPaints(selectedColor.R, selectedColor.G,selectedColor.B);
+        if (selectedColor == null) return;
+        
+        _selectedColor = selectedColor;
+        ClosestPaints = await ColorService.GetClosestPaints(selectedColor.R, selectedColor.G, selectedColor.B, _selectedBrandFilters.Select(x => x.Text).ToList());
         StateHasChanged();
     }
 
@@ -88,9 +103,7 @@
         
         var result = await PaintService.GetPaint(searchTerm);
 
-        if (!result.Any()) return new List<Paint>();
-
-        return result;
+        return !result.Any() ? new List<Paint>() : result;
     }
 
     private void SearchValueChanged(Paint? newValue)
@@ -99,6 +112,11 @@
         _colorPicker.SetR(newValue.Rgb.R);
         _colorPicker.SetG(newValue.Rgb.G);
         _colorPicker.SetB(newValue.Rgb.B);
+    }
+
+    private void SelectedValuesChanged()
+    {
+        GetClosestPaints(_selectedColor);
     }
 
 }
