@@ -15,52 +15,57 @@
     
     <MudGrid>
         <MudItem xs="12" sm="6" md="6">
-            <MudPaper Elevation="2" Class="d-flex flex-wrap pa-4" style="min-height:400px;">
-                <MudAutocomplete T="Paint" 
-                                 Label="Paint Name" 
-                                 SearchFunc="@SearchForPaint"
-                                 ValueChanged="@SearchValueChanged"
-                                 Clearable="true"
-                                 ToStringFunc="@(e=> e.Name + " - " + e.Brand)"
-                                 ResetValueOnEmptyText="true"
-                                 AdornmentIcon="@Icons.Material.Filled.Search" AdornmentColor="Color.Primary" />
-                
-                <MudColorPicker @ref="_colorPicker" 
-                                class="object-center" 
-                                PickerVariant="PickerVariant.Static" 
-                                DisableAlpha="true" 
-                                DisablePreview="true" 
-                                ValueChanged="GetClosestPaints"/>
+            <MudPaper Elevation="2" Class="pa-4" style="min-height:470px;">
+                <MudStack Justify="Justify.Center" AlignItems="AlignItems.Center">
+                    <MudAutocomplete T="Paint" 
+                                     Label="Paint Name" 
+                                     SearchFunc="@SearchForPaint"
+                                     ValueChanged="@SearchValueChanged"
+                                     Clearable="true"
+                                     ToStringFunc="@(e=> e.Name + " - " + e.Brand)"
+                                     ResetValueOnEmptyText="true"
+                                     Style="width: 300px"
+                                     AdornmentIcon="@Icons.Material.Filled.Search" AdornmentColor="Color.Primary" />
+                    
+                    <MudColorPicker @ref="_colorPicker" 
+                                    class="object-center" 
+                                    PickerVariant="PickerVariant.Static" 
+                                    DisableAlpha="true" 
+                                    DisablePreview="true" 
+                                    ValueChanged="GetClosestPaints"/>
+                </MudStack>
             </MudPaper>
         </MudItem>
         <MudItem xs="12" sm="6" md="6">
-            <MudPaper Elevation="2" Class="pa-4" style="min-height:400px;">
-                <MudChipSet @bind-SelectedChips="_selectedBrandFilters"
-                            SelectedValuesChanged="SelectedValuesChanged" MultiSelection="true" Filter="true">
-                    @foreach (var brand in Brands)
-                    {
-                        <MudChip Text="@brand" Default="true"></MudChip>
-                    }
-                </MudChipSet>
-                <MudSimpleTable>
-                    <thead>
-                        <tr>
-                            <th>Brand</th>
-                            <th>Name</th>
-                            <th>Sample</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    @foreach (var paint in ClosestPaints)
-                    {
-                        <tr>
-                            <td>@paint.Brand</td>
-                            <td>@paint.Name</td>
-                            <td style="background-color: rgb(@paint.Rgb.R, @paint.Rgb.G, @paint.Rgb.B)"></td>
-                        </tr>
-                    }
-                    </tbody>
-                </MudSimpleTable>
+            <MudPaper Elevation="2" Class="pa-4 pt-7" style="min-height:470px;">
+                <MudStack Justify="Justify.Center" AlignItems="AlignItems.Center">
+                    <MudChipSet @bind-SelectedChips="_selectedBrandFilters"
+                                SelectedValuesChanged="SelectedValuesChanged" MultiSelection="true" Filter="true">
+                        @foreach (var brand in Brands)
+                        {
+                            <MudChip Text="@brand" Default="true"></MudChip>
+                        }
+                    </MudChipSet>
+                    <MudSimpleTable Style="width: 90%">
+                        <thead>
+                            <tr>
+                                <th>Brand</th>
+                                <th>Name</th>
+                                <th>Sample</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        @foreach (var paint in ClosestPaints)
+                        {
+                            <tr>
+                                <td>@paint.Brand</td>
+                                <td>@paint.Name</td>
+                                <td style="background-color: rgb(@paint.Rgb.R, @paint.Rgb.G, @paint.Rgb.B)"></td>
+                            </tr>
+                        }
+                        </tbody>
+                    </MudSimpleTable>
+                </MudStack>
             </MudPaper>
         </MudItem>
     </MudGrid>
