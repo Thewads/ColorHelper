@@ -40,6 +40,11 @@ To get the project up and running locally, follow the steps below
 
 - [x] Add Basic Searching of Citadel paints
 - [ ] Support for other paint brands
+    - [x] Vallejo Color
+    - [x] Vallejo Model
+    - [ ] Army Painter
+    - [ ] Scale 75
+    - [ ] Pro Acryl
 - [ ] Filtering out of specific types of paint
     - [ ] Paint brands
     - [ ] Metallics
