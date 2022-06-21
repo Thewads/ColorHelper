@@ -78,11 +78,8 @@
 
     protected override async Task OnInitializedAsync()
     {
-        if (firstRender)
-        {
-            GetClosestPaints(new MudColor(89,74,226, 0));
-        }
-        return base.OnAfterRenderAsync(firstRender);
+        Brands = await BrandService.GetBrands();
+        _selectedBrandFilters = new MudChip[Brands.Count];
     }
     
     private async void GetClosestPaints(MudColor? selectedColor)
