@@ -6,7 +6,7 @@ namespace ColorService.Providers;
 
 public class JsonProvider : IPaintProvider
 {
-    private IList<Paint> _paints = new List<Paint>();
+    private readonly List<Paint> _paints = new();
     private readonly HttpClient _httpClient;
     
     public JsonProvider(HttpClient httpClient)
@@ -23,8 +23,13 @@ public class JsonProvider : IPaintProvider
 
     private async Task PopulatePaintList()
     {
-        var result = await _httpClient.GetFromJsonAsync<IList<Paint>>("Data/paints.json");
-        if (result != null)
-            _paints = result;
+        var paintBrands = await _httpClient.GetFromJsonAsync<List<PaintBrandFile>>("Data/paints.json") ?? new List<PaintBrandFile>();
+
+        foreach (var paintBrand in paintBrands)
+        {
+            var paintsInBrand = await _httpClient.GetFromJsonAsync<List<Paint>>("Data/" + paintBrand.File);
+            if(paintsInBrand != null)
+                _paints.AddRange(paintsInBrand);
+        }
     }
 }
