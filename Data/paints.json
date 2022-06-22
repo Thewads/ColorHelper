@@ -10,5 +10,13 @@
   {
     "Brand": "Vallejo Model Color",
     "File": "modelcolor.json"
+  },
+  {
+    "Brand": "Army Painter",
+    "File": "armypainter.json"
+  },
+  {
+    "Brand": "Scale75",
+    "File": "scale75.json"
   }
 ]
