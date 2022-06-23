@@ -7,9 +7,9 @@
   "linkerEnabled": true,
   "resources": {
     "assembly": {
-      "ColorHelperUi.dll": "sha256-BI0p+GQhCaSJwdLaTbUO2p03pM4YYXt+Sl2i5pqT57U=",
+      "ColorHelperUi.dll": "sha256-vYdx\/xCnJl9lIqcGokMSs8UgebaUEgbAZ5WuOVpdLO8=",
       "ColorMinePortable.dll": "sha256-x2IqxYynRmNrY2ZmnVNwvho0YweLhDmTcwaA1DmsFDg=",
-      "ColorService.dll": "sha256-53oEiPjrVSQYMMUjEr7vNvOfFiQIta3s\/1WJjOIdk7Q=",
+      "ColorService.dll": "sha256-JZJqYSSIrewjruNBLV8KAMp87KKyP1PfKNE4LeEulWA=",
       "Microsoft.AspNetCore.Components.dll": "sha256-NSKAnk1AlqE5H5mnWmil80QpftFgJgKduWh5uL3L6oE=",
       "Microsoft.AspNetCore.Components.Forms.dll": "sha256-Ki9125n8XZcuhgJMQXGb2aSq7AmNrqFm\/crA97fN2Wo=",
       "Microsoft.AspNetCore.Components.Web.dll": "sha256-r\/NlsEXvGMrdXQTwaLPDCvCsMkHqD0mTUDCmCTE8UYk=",
