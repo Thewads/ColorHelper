@@ -8,8 +8,8 @@ public class RgbToLabConverterShould
 {
     [Theory]
     [InlineData(0, 0, 0, 0, 0, 0)] //black
-    [InlineData(255, 255, 255,100, 0, 0)] //white
-    [InlineData(255, 0, 0, 54.29, 80.81, 69.89)] //red
+    [InlineData(255, 255, 255,100, 0.01, -0.01)] //white
+    [InlineData(255, 0, 0, 53.23, 80.11, 67.22)] //red
     public void ConvertRgbToLab(int r, int g, int b, double l, double a, double labB)
     {
         var inputRgb = new Rgb
@@ -29,6 +29,7 @@ public class RgbToLabConverterShould
     [InlineData(0,-1,0)]
     [InlineData(0,0,-1)]
     [InlineData(256,0,0)]
+    
     [InlineData(0,256,0)]
     [InlineData(0,0,256)]
     public void ThrowExceptionForInvalidRgb(int r, int g, int b)
