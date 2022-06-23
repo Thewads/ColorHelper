@@ -86,4 +86,33 @@ public class ColorServiceShould
         Assert.Equal(2,result.Count);
         Assert.True(result.All(x => brandFilters.Contains(x.Brand)));
     }
+
+    [Fact]
+    public void ReturnContrastingColorsCorrectly()
+    {
+        var paintProvider = new Mock<IPaintProvider>();
+        paintProvider.Setup(x => x.RetrieveAllPaints()).ReturnsAsync(new List<Paint>
+        {
+            new() { Brand = "Brand 1", Name = "Red",  Lab = new() { L = 53.23, A = 80.11, B = 67.22 }, Rgb = new() {R = 255, G = 0, B = 0} },
+            new() { Brand = "Brand 1", Name = "Red2", Lab = new() { L = 53.23, A = 80.11, B = 67.22 }, Rgb = new() {R = 255, G = 0, B = 0} },
+            new() { Brand = "Brand 1", Name = "Red3", Lab = new() { L = 53.23, A = 80.11, B = 67.22 }, Rgb = new() {R = 255, G = 0, B = 0} },
+            new() { Brand = "Brand 1", Name = "Red4", Lab = new() { L = 53.23, A = 80.11, B = 67.22 }, Rgb = new() {R = 255, G = 0, B = 0} },
+            new() { Brand = "Brand 1", Name = "Red5", Lab = new()  { L = 32.3, A = 79.2, B = -107.86 }, Rgb = new() {R = 255, G = 0, B = 0} },
+            new() { Brand = "Brand 1", Name = "Blue1", Lab = new() { L = 32.3, A = 79.2, B = -107.86 }, Rgb = new() {R = 255, G = 0, B = 0} },
+            new() { Brand = "Brand 1", Name = "Blue2", Lab = new() { L = 32.3, A = 79.2, B = -107.86 }, Rgb = new() {R = 255, G = 0, B = 0} },
+            new() { Brand = "Brand 1", Name = "Blue3", Lab = new() { L = 32.3, A = 79.2, B = -107.86 }, Rgb = new() {R = 255, G = 0, B = 0} }
+        });
+        var converter = new RgbToLabConverter();
+        
+        var colorService = new ColorService.ColorService(paintProvider.Object, converter);
+        int r = 0;
+        int g = 0;
+        int b = 255;
+        var brandFilters = new List<string> { "Brand 1" };
+
+        IList<Paint> result = colorService.GetContrastingPaints(r, g, b, brandFilters).Result;
+        Assert.NotNull(result);
+        Assert.Equal(5, result.Count);
+        Assert.DoesNotContain(result, x => x.Name.Contains("Blue"));
+    }
 }

@@ -2,6 +2,7 @@
 using ColorService.Converters;
 using ColorService.Models;
 using ColorService.Providers;
+using Rgb = ColorService.Models.Rgb;
 
 namespace ColorService;
 
@@ -32,6 +33,11 @@ public class ColorService : IColorService
         }
 
         return closestPaints.OrderBy(x => x.Item2).Take(5).Select(x => x.Item1).ToList();
+    }
+
+    public async Task<IList<Paint>> GetContrastingPaints(int r, int g, int b, List<string> brandFilters)
+    {
+        return await GetClosestPaints(255 - r, 255 - g, 255 - b, brandFilters);
     }
 }
 
