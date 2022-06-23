@@ -1,7 +1,7 @@
-﻿using ColorService.Converters;
+﻿using ColorMine.ColorSpaces.Comparisons;
+using ColorService.Converters;
 using ColorService.Models;
 using ColorService.Providers;
-using Colourful;
 
 namespace ColorService;
 
@@ -25,9 +25,8 @@ public class ColorService : IColorService
         
         foreach (var paint in allPaints.Where(x => selectedBrands.Contains(x.Brand)))
         {
-            var distance = new CIE76ColorDifference().ComputeDifference(
-                new LabColor(labColor.L, labColor.A, labColor.B),
-                new LabColor(paint.Lab.L, paint.Lab.A, paint.Lab.B));
+            var distance = new ColorMine.ColorSpaces.Lab {L = labColor.L, A = labColor.A, B = labColor.B}
+                .Compare(new ColorMine.ColorSpaces.Lab {L = paint.Lab.L, A = paint.Lab.A, B = paint.Lab.B}, new CieDe2000Comparison());
             
             closestPaints.Add(new Tuple<Paint, double>(paint, distance));
         }
