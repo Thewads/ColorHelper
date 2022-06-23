@@ -29,7 +29,6 @@ public class RgbToLabConverterShould
     [InlineData(0,-1,0)]
     [InlineData(0,0,-1)]
     [InlineData(256,0,0)]
-    
     [InlineData(0,256,0)]
     [InlineData(0,0,256)]
     public void ThrowExceptionForInvalidRgb(int r, int g, int b)

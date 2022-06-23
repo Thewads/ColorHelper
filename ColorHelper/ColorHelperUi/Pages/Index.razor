@@ -8,31 +8,41 @@
 
 <MudContainer>
     
-    <MudText Typo="Typo.h4" Align="Align.Center" GutterBottom="true" class="mt-10">Find Closest Paints</MudText>
-    <MudText Typo="Typo.body1" Align="Align.Center" GutterBottom="true">Select or input a given color and the 5 closest known colors will be listed</MudText>
+    <MudText Typo="Typo.h4" Align="Align.Center" GutterBottom="true" class="mt-10">Paint Helper</MudText>
+    <MudText Typo="Typo.body1" Align="Align.Center" GutterBottom="true">Select mode of operation to get the type of search you want</MudText>
+    <MudText Typo="Typo.body1" Align="Align.Center" GutterBottom="true">Then select a paint from the search menu, or select a color using the picker, and get results returned in table on right</MudText>
     <MudDivider class="mb-10"></MudDivider>
     
     
+    
     <MudGrid>
+        <MudItem xs="12">
+            <MudStack Justify="Justify.Center" AlignItems="AlignItems.Center">
+                <MudChipSet @bind-SelectedChip="_selectedMode" SelectedValuesChanged="SelectedValuesChanged" Filter="true" Mandatory="true">
+                    <MudChip Text="Closest" Default="true"></MudChip>
+                    <MudChip Text="Contrasting"></MudChip>
+                </MudChipSet>
+            </MudStack>
+        </MudItem>
         <MudItem xs="12" sm="6" md="6">
             <MudPaper Elevation="2" Class="pa-4" style="min-height:470px;">
                 <MudStack Justify="Justify.Center" AlignItems="AlignItems.Center">
-                    <MudAutocomplete T="Paint" 
-                                     Label="Paint Name" 
+                    <MudAutocomplete T="Paint"
+                                     Label="Paint Name"
                                      SearchFunc="@SearchForPaint"
                                      ValueChanged="@SearchValueChanged"
                                      Clearable="true"
-                                     ToStringFunc="@(e=> e.Name + " - " + e.Brand)"
+                                     ToStringFunc="@(e => e.Name + " - " + e.Brand)"
                                      ResetValueOnEmptyText="true"
                                      Style="width: 300px"
-                                     AdornmentIcon="@Icons.Material.Filled.Search" AdornmentColor="Color.Primary" />
-                    
-                    <MudColorPicker @ref="_colorPicker" 
-                                    class="object-center" 
-                                    PickerVariant="PickerVariant.Static" 
-                                    DisableAlpha="true" 
-                                    DisablePreview="true" 
-                                    ValueChanged="GetClosestPaints"/>
+                                     AdornmentIcon="@Icons.Material.Filled.Search" AdornmentColor="Color.Primary"/>
+
+                    <MudColorPicker @ref="_colorPicker"
+                                    class="object-center"
+                                    PickerVariant="PickerVariant.Static"
+                                    DisableAlpha="true"
+                                    DisablePreview="true"
+                                    ValueChanged="GetPaintsFromColor"/>
                 </MudStack>
             </MudPaper>
         </MudItem>
@@ -48,14 +58,14 @@
                     </MudChipSet>
                     <MudSimpleTable Style="width: 90%">
                         <thead>
-                            <tr>
-                                <th>Brand</th>
-                                <th>Name</th>
-                                <th>Sample</th>
-                            </tr>
+                        <tr>
+                            <th>Brand</th>
+                            <th>Name</th>
+                            <th>Sample</th>
+                        </tr>
                         </thead>
                         <tbody>
-                        @foreach (var paint in ClosestPaints)
+                        @foreach (var paint in ReturnedPaints)
                         {
                             <tr>
                                 <td>@paint.Brand</td>
@@ -74,12 +84,13 @@
 
 @code {
 
-    private IList<Paint> ClosestPaints { get; set; } = new List<Paint>();
+    private IList<Paint> ReturnedPaints { get; set; } = new List<Paint>();
     private IList<string> Brands { get; set; } = new List<string>();
 
     private MudChip[] _selectedBrandFilters = Array.Empty<MudChip>();
     private MudColorPicker _colorPicker = default!;
     private MudColor _selectedColor = default!;
+    private MudChip _selectedMode = default!;
 
     protected override async Task OnInitializedAsync()
     {
@@ -87,12 +98,15 @@
         _selectedBrandFilters = new MudChip[Brands.Count];
     }
     
-    private async void GetClosestPaints(MudColor? selectedColor)
+    private async void GetPaintsFromColor(MudColor? selectedColor)
     {
         if (selectedColor == null) return;
         
         _selectedColor = selectedColor;
-        ClosestPaints = await ColorService.GetClosestPaints(selectedColor.R, selectedColor.G, selectedColor.B, _selectedBrandFilters.Select(x => x.Text).ToList());
+        if(_selectedMode.Text == "Closest")
+            ReturnedPaints = await ColorService.GetClosestPaints(selectedColor.R, selectedColor.G, selectedColor.B, _selectedBrandFilters.Select(x => x.Text).ToList());
+        else
+            ReturnedPaints = await ColorService.GetContrastingPaints(selectedColor.R, selectedColor.G, selectedColor.B, _selectedBrandFilters.Select(x => x.Text).ToList());
         StateHasChanged();
     }
 
@@ -118,7 +132,6 @@
 
     private void SelectedValuesChanged()
     {
-        GetClosestPaints(_selectedColor);
+        GetPaintsFromColor(_selectedColor);
     }
-
 }
